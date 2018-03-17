@@ -1,0 +1,37 @@
+---
+title: "Student Submissions Report"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(results='asis', echo=FALSE)
+```
+
+## Analysis of submissions by student
+
+This is a small report to identify students who are not submitting practices
+
+```{r cars}
+#Create full roster
+nm <- unique(read.csv("../analysis/id.csv", stringsAsFactors = FALSE)[ , 2:5])
+#Read grades
+fl <- read.csv(paste0("all_grades.csv"), stringsAsFactors = FALSE, strip.white = TRUE)
+fl <- merge(nm, fl[, c(3, 11:12)], by = "pawsid", all.x = TRUE)
+
+```
+
+
+```{r pressure, echo=FALSE}
+library(knitr)
+kable(with(fl, table(pawsid, label)))
+t <- rowSums(with(fl, table(pawsid, label)))
+```
+
+\pagebreak
+
+The following are the students who have yet to submit an assignement.
+
+```{r}
+kable(fl[fl$pawsid %in% names(t)[t == 0], 1:4])
+```
+

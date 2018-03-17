@@ -1,0 +1,48 @@
+---
+title: "Performance Report: PLACE CORRECT REPORT"
+output: pdf_document
+params:
+  fn: J
+  ln: Rod
+  filename: Test
+  timestamp: 2018-01-26 16:09:57
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(results='asis', echo=FALSE)
+fn <- paste(params$fn, params$ln, sep = " ")
+fl <- params$filename
+tms <- params$timestamp
+df <- read.csv(paste0(fl,".csv"), stringsAsFactors = FALSE, strip.white = TRUE)
+colnames(df) <- c("Task", "PA", "PE")
+```
+
+# Grading Report for: `r fn`
+### Report on file named: `r fl`
+### Submitted on: `r strftime(tms, format="%A, %d %B, %Y", , tz = "America/Chicago")` at `r strftime(tms, format="%I:%M:%S %p", , tz = "America/Chicago")`
+
+This is a report detailing your performance on the practice assignment. You should review it along with the original task list and the public key file (available in the application). Below we list the tasks that you had to perform, the assigned value, and how much credit your answer accrued for each of those tasks.  
+
+Glossary:  
+
+* PA: Points Allocated - the maximum number of points you can earn for the task. 
+* PE: Points Earned - the actual number of points your solution to the task earned.
+* NG: Not Graded - tasks that have no points allocated for purpose of evaluation.
+
+You should be able to interpret the results on your own. We remain available to explain any of the tasks or the results during our daily Open Lab hours. 
+
+```{r}
+library(knitr)
+totpa <- df[which(df$Task == "Total"), c("PA")]
+totpe <- df[which(df$Task == "Total"), c("PE")]
+```
+
+Your total score is ***`r round(totpe/totpa*100, digits = 2)`%***.
+
+```{r}
+stp <- which(df$Task == "Total") - 1
+df <- df[1:stp, ]
+df[which(df$PA == 0), c("PA", "PE")] <- "NG"
+kable(df)
+```
+

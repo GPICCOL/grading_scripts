@@ -1,0 +1,73 @@
+---
+title: "Activity Report"
+output: pdf_document
+params:
+  fn: Pippo
+  ln: Topolino
+  ranges: NA
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(results='asis', echo=FALSE)
+fn <- paste(params$fn, params$ln, sep = ", ")
+ranges <- params$ranges
+
+
+```
+
+# ISDS 1102 Activity Report
+
+## Prepared for `r fn`
+This report is prepared as a service to you and it is confidential. It details your current level of use of the resources we make available to you to succeed in this class. We define success as learning and skill development. In this class you have learned if you know more Information Systems and Information Technology than what you knew at the start of the semester. You also have learned if your general computing skills, and your abilities in Microsoft Word and Excel are have increased since the beginning of the semester.
+
+We are Information Systems professionals and we believe in the power of data to inform and enable decision making. You should carefully evaluate how you are (or aren't) taking advantage of the many resources we have built and made available to you. Armed with this information you should decide if you need to change your learning strategy in this course. We are, of course, willing, able and happy to discuss with you anything we can do to contribute further to your learning.
+
+## Attendance Report
+
+### Class Attendance
+
+
+### SI Review Attendance
+
+
+### Open Lab Attendance
+
+
+## Resource Usage
+Below is an access report detailing your usage of the online App. 
+
+Since the beginning of the course, from ?? to ??, you have connected to the application XX times. You connected on XX days out of YY total days. The average of all students during this period was XX sessions over YY total days. 
+
+During the last month, from ?? to ??, you have connected to the application XX times. You connected on XX days out of YY total days. 
+The average of all students during this period was XX sessions over YY total days. 
+
+During the last two weeks, from ?? to ??, you have connected to the application XX times. You connected on XX days out of YY total days.
+The average of all students during this period was XX sessions over YY total days. 
+
+Below you can see the number of times you have connected on each day since the start of the semester.
+
+##CHART HERE##
+
+
+
+## Practice Exercise Completion
+You have completed `r ??` out of `r ??` practice reports to date. Specifically, you have completed the following:
+
+
+## Check-up Performance
+You have completed `r ??` out of `r ??` checkups to day. Specifically, your perfomance on these checkups is:
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+```
+
